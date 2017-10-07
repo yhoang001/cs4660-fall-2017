@@ -116,14 +116,14 @@ function minimax(graph, sourceNode, depth, maximizingPlayer) {
     }
 
     if (maximizingPlayer) {
-        bestValue = Number.MAX_VALUE; // positive infinite
+        bestValue = Number.MIN_VALUE;
         for (node in graph.neighbors(sourceNode)) {
             value = minimax(node, graph, depth - 1, false);
             bestValue = Math.max(bestValue, value);
         }
         return bestValue;
     } else {
-        bestValue = Number.MIN_VALUE; // negative infinite
+        bestValue = Number.MAX_VALUE;
         for (node in graph.neighbors(sourceNode)) {
             value = minimax(node, graph, depth - 1, true);
             bestValue = Math.min(bestValue, value);
